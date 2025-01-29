@@ -120,23 +120,26 @@ class HomeView extends StatelessWidget {
                                   ),
                                 ),
                                 //const SizedBox(height: 10),
-                                ElevatedButton(
-                                  style: ElevatedButton.styleFrom(
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(5),
+                                Center(
+                                  child: ElevatedButton(
+                                    style: ElevatedButton.styleFrom(
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(5),
+                                      ),
+                                      backgroundColor: Colors.orange,
                                     ),
-                                    backgroundColor: Colors.orange,
+                                    onPressed: () {
+                                      cartController.addToCart({
+                                        'id': DateTime.now().toString(),
+                                        'name': product.name,
+                                        'price': product.price,
+                                        'image': product.image,
+                                      });
+                                      _scaffoldKey.currentState
+                                          ?.openEndDrawer();
+                                    },
+                                    child: const Text('Quick Add'),
                                   ),
-                                  onPressed: () {
-                                    cartController.addToCart({
-                                      'id': DateTime.now().toString(),
-                                      'name': product.name,
-                                      'price': product.price,
-                                      'image': product.image,
-                                    });
-                                    _scaffoldKey.currentState?.openEndDrawer();
-                                  },
-                                  child: const Text('Quick Add'),
                                 ),
                               ],
                             ),

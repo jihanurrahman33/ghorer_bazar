@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../controllers/cart_controller.dart';
+import '../../payment_gateway_view/payment_gateway_view.dart';
 
 class CartView extends StatelessWidget {
   const CartView({super.key});
@@ -99,8 +100,10 @@ class CartView extends StatelessWidget {
             ElevatedButton(
               onPressed: () {
                 // Add checkout logic here
+                Get.to(() => Checkout());
                 Get.snackbar('Checkout', 'Proceed to checkout!',
-                    snackPosition: SnackPosition.BOTTOM);
+                    snackPosition: SnackPosition.TOP);
+                cartController.removeFromCart(cartController.cartItems.first);
               },
               child: const Text('Checkout'),
             ),

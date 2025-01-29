@@ -20,6 +20,7 @@ class CartController extends GetxController {
     calculateTotal();
   }
 
+  //remove from cart
   void removeFromCart(Map<String, dynamic> item) {
     // Find the item in the cart
     var existingItem =
